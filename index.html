@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradutor Automático para Libras</title>
+
+    <!-- Carregando o VLibras PRIMEIRO, no HEAD da página -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Carregando nosso CSS depois -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- JANELA DO VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- NOSSO CONTEÚDO -->
+    <div class="container">
+        <h1>Tradutor Automático para Libras</h1>
+        
+        <div class="feature-box">
+            <h2>Tradução por Voz</h2>
+            <p>Clique no botão e comece a falar.</p>
+            <button id="iniciarVozBtn">▶️ Iniciar Tradução de Voz</button>
+            <div class="transcription-status">
+                <p class="transcricao-label">Texto Transcrito:</p>
+                <span id="statusIndicator" class="indicator"></span>
+            </div>
+            <p id="textoTranscritoVoz">...</p>
+        </div>
+
+        <div class="feature-box">
+            <h2>Tradução por Texto</h2>
+            <p>Digite ou cole o texto que deseja traduzir.</p>
+            <textarea id="textoParaTraduzir" rows="5" placeholder="Escreva aqui..."></textarea>
+            <div class="button-group">
+                <button id="iniciarTextoBtn">➡️ Traduzir Texto</button>
+                <button id="copiarTextoBtn" class="secondary-btn">📋 Copiar</button>
+                <button id="limparTextoBtn" class="secondary-btn">🗑️ Limpar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carregando nosso SCRIPT por último -->
+    <script src="script.js"></script>
+
+</body>
+</html>
